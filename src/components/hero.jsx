@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="w-full max-w-[1400px] px-3 sm:px-6 md:px-12 lg:px-16 xl:px-20">
 
         {/* ============================================================
-            MOBILE LAYOUT: Image + Name stacked, then tagline, then content
+            MOBILE LAYOUT
         ============================================================= */}
         <div className="block md:hidden mb-6">
           {/* Image + name row */}
@@ -29,24 +29,18 @@ const Hero = () => {
           </div>
           {/* Red tagline */}
           <h2 className="font-serif italic font-bold text-[15px] sm:text-[17px] text-[#fa0000] leading-snug mb-4">
-            engineering, distributed systems, and full-stack software. always building.
+            full-stack engineer · distributed systems · always building.
           </h2>
           {/* Body paragraphs on mobile */}
           <div className="editorial-content">
             <p>
-              I am a software engineer focused on full-stack architecture and distributed systems. My work spans event-driven backends with WebSocket state machines, geospatial database indexing, AI-integrated service pipelines, and React client architectures with deterministic state management using Redux Toolkit.
+              I build full-stack web and mobile applications — from <a href="/projects">Node.js/Express</a> APIs and <a href="/projects">MongoDB</a> schemas to <a href="/projects">React</a> and <a href="/projects">React Native</a> clients. My backend work covers real-time WebSocket pipelines with <a href="/projects">Socket.IO</a>, geospatial indexing, JWT auth, and AI service integrations with <a href="/projects">Gemini API</a>.
             </p>
             <p>
-              On the backend, I design modular <a href="/projects">Node.js/Express</a> APIs with explicit separation of concerns — service layers, middleware guards, and schema-validated routes. On the frontend, I build <a href="/projects">React</a> interfaces that prioritize rendering performance: memoized selectors, optimistic UI mutations, and minimal re-render boundaries. For cross-platform mobile, I engineer with <a href="/projects">React Native</a> and Expo using native-driver animations and offline-first AsyncStorage caching.
+              I write clean, modular code — service layers, MVC patterns, and <a href="/projects">Redux Toolkit</a> state machines with optimistic UI. I design MongoDB schemas around access patterns: compound indexes, 2dsphere geospatial queries, and aggregation pipelines for analytics.
             </p>
             <p>
-              My database work goes beyond CRUD — I index compound queries for sub-50ms resolution, build <a href="/projects">MongoDB aggregation pipelines</a> for analytics telemetry, and model geospatial schemas with 2dsphere indexing for real-time proximity dispatch (Uber clone architecture).
-            </p>
-            <p>
-              I complement system-level thinking with rigorous algorithm practice on <a href="https://leetcode.com/u/Adarsh_kumar62041/" target="_blank" rel="noopener noreferrer">LeetCode</a> in modern C++ — 150+ problems solved across dynamic programming, graph traversal, sliding windows, and bit manipulation. I analyze time and space complexity with the same discipline I apply to production query plans.
-            </p>
-            <p>
-              Currently building toward senior engineering roles — I am interested in teams that ship meaningful software, prioritize code quality, and treat engineering as craft. I value clear ownership, technical depth, and systems that are observable in production.
+              150+ <a href="https://leetcode.com/u/Adarsh_kumar62041/" target="_blank" rel="noopener noreferrer">LeetCode</a> problems in C++ — dynamic programming, graphs, and sliding windows. Open to full-time software engineering roles.
             </p>
           </div>
           {/* Social pills */}
@@ -75,21 +69,18 @@ const Hero = () => {
         </div>
 
         {/* ============================================================
-            DESKTOP LAYOUT: Exact Arpit style
-            - Big serif "Hey, I am Adarsh" heading
-            - Red italic tagline subtitle
-            - Two columns: long paragraphs left | portrait right
+            DESKTOP LAYOUT
         ============================================================= */}
         <div className="hidden md:block">
 
-          {/* H1 — the editorial serif heading */}
+          {/* H1 */}
           <h1 className="font-serif italic font-bold text-[44px] lg:text-[52px] leading-[1.1] text-[#111111] tracking-[-0.02em] mb-2">
             Hey, I am Adarsh
           </h1>
 
-          {/* Red tagline — exactly like the reference */}
+          {/* Red tagline */}
           <h2 className="font-serif italic font-bold text-[20px] lg:text-[23px] text-[#fa0000] leading-snug mb-6 sm:mb-7">
-            engineering, distributed systems, and full-stack software. always building.
+            full-stack engineer · distributed systems · always building.
           </h2>
 
           {/* TWO-COLUMN: text left (~65%), portrait right (~35%) */}
@@ -98,27 +89,15 @@ const Hero = () => {
             {/* LEFT — editorial body paragraphs */}
             <div className="col-span-7 lg:col-span-8 editorial-content">
               <p>
-                I am a software engineer focused on full-stack architecture and distributed systems. My work spans event-driven backends with WebSocket state machines, geospatial database indexing, AI-integrated service pipelines, and React client architectures with deterministic state management using <a href="/projects">Redux Toolkit</a>.
+                I build full-stack web and mobile applications — from <a href="/projects">Node.js/Express</a> APIs and <a href="/projects">MongoDB</a> schemas to <a href="/projects">React</a> and <a href="/projects">React Native</a> clients. My backend work covers real-time WebSocket pipelines with <a href="/projects">Socket.IO</a>, geospatial indexing, JWT auth, and AI service integrations with <a href="/projects">Gemini API</a>.
               </p>
 
               <p>
-                On the backend, I design modular <a href="/projects">Node.js/Express</a> APIs with explicit separation of concerns — service layers, middleware guards, and schema-validated routes. On the frontend, I build <a href="/projects">React</a> interfaces that prioritize rendering performance: memoized selectors, optimistic UI mutations, and minimal re-render boundaries. For cross-platform mobile, I engineer with <a href="/projects">React Native</a> and Expo using native-driver animations and offline-first AsyncStorage caching.
+                I write clean, modular code — service layers, MVC patterns, and <a href="/projects">Redux Toolkit</a> state machines with optimistic UI. I design MongoDB schemas around access patterns: compound indexes, 2dsphere geospatial queries, and aggregation pipelines for analytics.
               </p>
 
               <p>
-                My database work goes beyond CRUD — I index compound queries for sub-50ms resolution, build <a href="/projects">MongoDB aggregation pipelines</a> for analytics telemetry, and model geospatial schemas with 2dsphere indexing for real-time proximity dispatch (see my <a href="/projects">Uber dispatch engine</a>).
-              </p>
-
-              <p>
-                I complement system-level thinking with rigorous algorithm practice on <a href="https://leetcode.com/u/Adarsh_kumar62041/" target="_blank" rel="noopener noreferrer">LeetCode</a> in modern C++ — 150+ problems solved across dynamic programming, graph traversal, sliding windows, and bit manipulation. I analyze time and space complexity with the same discipline I apply to production query plans.
-              </p>
-
-              <p>
-                I build a lot of <a href="/projects">side projects</a> — experimenting with real-time WebSockets, AI agent integrations, and microservice architectures. Some ship to production, some are just learning vehicles, but building is always the point.
-              </p>
-
-              <p>
-                Currently building toward senior engineering roles — I am interested in teams that ship meaningful software, prioritize code quality, and treat engineering as craft. I value clear ownership, technical depth, and systems that are observable in production.
+                150+ <a href="https://leetcode.com/u/Adarsh_kumar62041/" target="_blank" rel="noopener noreferrer">LeetCode</a> problems in modern C++ — dynamic programming, graphs, and sliding windows. I analyze complexity with the same discipline I apply to production query plans. Open to full-time <a href="/experiences">software engineering roles</a>.
               </p>
 
               {/* Social pills */}
@@ -146,7 +125,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* RIGHT — portrait only, sticky, right-aligned */}
+            {/* RIGHT — portrait */}
             <div className="col-span-5 lg:col-span-4 flex justify-end pt-1">
               <div className="sticky top-24 w-full flex justify-end">
                 <img

@@ -2,51 +2,47 @@ import React from 'react';
 
 const skillCategories = [
   {
-    title: "Frontend Engineering & State Architecture",
-    description: "Building deterministic, performant user interfaces with unidirectional data flows and minimal re-render boundaries.",
+    title: "Frontend",
     skills: [
       "React.js & Next.js",
-      "Redux Toolkit (Slices & Thunks)",
-      "Optimistic UI Patterns",
-      "TypeScript & JavaScript (ES6+)",
-      "Tailwind CSS & Design Systems",
-      "Web Performance Optimization",
+      "Redux Toolkit",
+      "Optimistic UI",
+      "TypeScript & JavaScript",
+      "Tailwind CSS",
+      "React Native & Expo",
     ],
   },
   {
-    title: "Backend Services & Distributed Systems",
-    description: "Architecting modular API layers, real-time WebSocket event pipelines, and AI service integrations.",
+    title: "Backend & APIs",
     skills: [
       "Node.js & Express.js",
-      "Socket.IO (Rooms & Pub/Sub)",
-      "RESTful API Design (MVC)",
-      "JWT Auth & Token Blacklisting",
-      "Puppeteer (Headless PDF Gen)",
-      "Gemini AI / LLM Integration",
+      "Socket.IO (Pub/Sub, Rooms)",
+      "REST API Design (MVC)",
+      "JWT Auth & Blacklisting",
+      "Puppeteer (PDF Generation)",
+      "Gemini AI Integration",
     ],
   },
   {
-    title: "Databases, Indexing & Query Optimization",
-    description: "Designing schemas for access patterns first, not just logical structure — compound indexes, geospatial queries, and aggregation pipelines.",
+    title: "Databases & Infra",
     skills: [
-      "MongoDB & Mongoose ODM",
-      "2dsphere Geospatial Indexing",
-      "Compound Index Strategy",
+      "MongoDB & Mongoose",
+      "2dsphere Geospatial Index",
       "Aggregation Pipelines",
+      "Compound Index Strategy",
       "PostgreSQL & MySQL",
-      "Vercel Cloud Deployment",
+      "Vercel Deployment",
     ],
   },
   {
-    title: "Algorithms, Complexity & Mobile Engineering",
-    description: "C++ algorithm practice focused on asymptotic analysis, cache efficiency, and cross-platform React Native development.",
+    title: "Algorithms & Mobile",
     skills: [
       "C++ (LeetCode 150+ Solved)",
-      "Time & Space Complexity Analysis",
-      "Dynamic Programming & Graphs",
-      "React Native & Expo",
-      "Native Driver Animations",
-      "Offline-First AsyncStorage",
+      "Dynamic Programming",
+      "Graph Algorithms (BFS/DFS)",
+      "React Native Animations",
+      "AsyncStorage (Offline-First)",
+      "Time & Space Complexity",
     ],
   },
 ];
@@ -57,26 +53,23 @@ const LowerAbout = () => {
       {/* SECTION HEADING */}
       <div className="mb-6">
         <h2 className="font-serif italic font-bold text-xl sm:text-2xl text-[#111111] mb-1">
-          Technical Skills & Domain Expertise
+          Technical Skills
         </h2>
         <p className="text-xs sm:text-sm text-[#666666] max-w-2xl">
-          Proficiencies organized by domain — with an emphasis on the specific patterns and techniques I apply within each area, not just the tool names.
+          Full-stack proficiencies — frontend, backend, databases, algorithms, and mobile.
         </p>
       </div>
 
       {/* SKILL MATRIX */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
         {skillCategories.map((group) => (
           <div
             key={group.title}
             className="border border-[#e6e4dc] rounded-lg p-4 bg-white/60"
           >
-            <h3 className="font-sans font-bold text-sm sm:text-[15px] text-[#111111] mb-1">
+            <h3 className="font-sans font-bold text-sm text-[#111111] mb-3 uppercase tracking-wide">
               {group.title}
             </h3>
-            <p className="text-xs text-[#666666] leading-relaxed mb-3">
-              {group.description}
-            </p>
             <div className="flex flex-wrap gap-1.5">
               {group.skills.map((skill) => (
                 <span
@@ -94,7 +87,7 @@ const LowerAbout = () => {
       {/* ENGINEERING PROFILE */}
       <div className="border-t border-[#deddd7] pt-6">
         <h3 className="font-sans font-bold text-sm sm:text-[15px] text-[#111111] mb-4">
-          Quick Engineering Profile
+          Quick Profile
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[

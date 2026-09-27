@@ -9,16 +9,15 @@ const experiences = [
     location: "India",
     type: "PROFESSIONAL EXPERIENCE",
     overview:
-      "Owned the complete frontend engineering lifecycle for DTEST — an enterprise platform comprising an administrative metrics dashboard, a secure client portal, a dynamic service showcase, and an interactive business inquiry module. Delivered a multi-page responsive application from design wireframes to production deployment.",
+      "Built DTEST — a multi-page enterprise platform with an admin dashboard, client portal, and service showcase. Owned the full frontend lifecycle from wireframes to production deployment.",
     technicalImpact: [
-      "Engineered pixel-perfect responsive layouts for dashboard and portal views using semantic HTML5 and custom CSS3, achieving consistent rendering across Chrome, Safari, Firefox, and mobile viewports without framework dependencies.",
-      "Architected a modular CSS component system with reusable class patterns and design tokens — reducing per-page stylesheet duplication by establishing a shared utility layer and eliminating ad-hoc inline overrides.",
-      "Built interactive client inquiry forms with client-side regex validation pipelines: real-time field error feedback, submission debouncing to prevent duplicate requests, and async confirmation alerts using fetch-based POST handlers.",
-      "Collaborated directly with cross-functional stakeholders across two design iteration cycles — managing change requests, communicating technical constraints, and delivering incremental builds against a four-week delivery timeline.",
-      "Optimized static asset loading (image compression, CSS specificity reduction) to improve First Contentful Paint metrics and ensure smooth performance on mid-range mobile devices.",
+      "Pixel-perfect responsive layouts using semantic HTML5 and CSS3 — consistent across Chrome, Safari, Firefox, and mobile viewports without framework dependencies.",
+      "Modular CSS component system with reusable class patterns and design tokens — eliminated per-page stylesheet duplication.",
+      "Client-side regex validation with real-time error feedback, submission debouncing, and async confirmation via fetch-based POST handlers.",
+      "Managed two design iteration cycles directly with stakeholders — delivered incremental builds against a four-week timeline.",
     ],
-    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive UI/UX", "Form Validation", "Cross-Browser Compat", "Async Fetch API"],
-    reflection: "This role established my foundation in delivering production-ready interfaces under real deadlines with real stakeholders — the discipline of managing scope, communicating trade-offs, and shipping clean code I can stand behind.",
+    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive UI/UX", "Form Validation", "Async Fetch API"],
+    reflection: "Established my foundation in delivering production interfaces under real deadlines — managing scope, communicating trade-offs, and shipping code I can stand behind.",
   },
   {
     title: "Backend & Distributed Systems Engineer",
@@ -27,15 +26,15 @@ const experiences = [
     location: "India",
     type: "SYSTEM ENGINEERING",
     overview:
-      "Architected a high-concurrency distributed backend replicating Uber's core ride-hailing infrastructure. This was not a tutorial build — it required solving real distributed systems problems: bidirectional real-time state synchronization, geospatial proximity queries under concurrent load, and race condition prevention in shared ride state.",
+      "Built a high-concurrency distributed backend replicating Uber's ride-hailing infrastructure — real-time state sync via WebSockets, geospatial proximity queries, and FSM-governed ride lifecycle.",
     technicalImpact: [
-      "Implemented Socket.IO room-based pub/sub event pipeline where each active ride occupies an isolated channel. Driver location updates broadcast to passenger clients at sub-100ms latency; connection lifecycle events (disconnect, reconnect) trigger automatic state cleanup via server-side socket hooks.",
-      "Designed MongoDB schemas with 2dsphere geospatial indexes on driver coordinate fields. $geoNear aggregation queries resolve nearest-available-driver lookups in sub-second time even under simulated concurrent passenger requests — the index eliminates full collection scans regardless of driver fleet size.",
-      "Implemented Finite State Machine for ride lifecycle (Requested → Accepted → In Transit → Completed → Cancelled) with atomic MongoDB findOneAndUpdate operations using state guards — preventing race conditions where two concurrent driver acceptance requests could transition a ride past Requested state.",
-      "Secured all REST endpoints and WebSocket upgrade handshakes with modular JWT bearer token middleware. Role-based permission guards (passenger vs. driver) enforce that only authorized roles can trigger specific state transitions.",
+      "Socket.IO room-based pub/sub: driver location updates broadcast to passengers at sub-100ms latency. Disconnect events trigger automatic state cleanup via server-side socket hooks.",
+      "MongoDB 2dsphere geospatial indexes: $geoNear aggregation resolves nearest-driver dispatch in sub-second time — eliminates full collection scans at any fleet size.",
+      "Finite State Machine (Requested → Accepted → In Transit → Completed → Cancelled) with atomic findOneAndUpdate state guards — prevents race conditions on concurrent driver acceptance.",
+      "Role-based JWT middleware on REST endpoints and WebSocket upgrade handshakes — passenger vs. driver permission guards per state transition.",
     ],
     skills: ["Node.js", "Express.js", "MongoDB", "Socket.IO", "2dsphere Indexing", "JWT", "FSM Design", "REST APIs"],
-    reflection: "This project taught me the gap between theoretical distributed systems knowledge and practical implementation. Race conditions, connection lifecycle management, and geospatial query performance are not problems you understand from reading — you encounter them when building.",
+    reflection: "Race conditions, connection lifecycle management, and geospatial query performance are not problems you understand from reading — you encounter them when building.",
   },
   {
     title: "Full-Stack AI Platform Engineer",
@@ -44,15 +43,15 @@ const experiences = [
     location: "India",
     type: "FULL-STACK & AI INTEGRATION",
     overview:
-      "Designed and delivered a full-stack platform for automated mock technical interviews. The system orchestrates Gemini AI for structured rubric-based evaluation, generates dynamic PDF feedback reports via headless Puppeteer rendering, and implements proper session security including immediate server-side invalidation on logout.",
+      "Full-stack mock interview platform — Gemini AI for structured rubric evaluation, Puppeteer PDF report generation, and server-side token blacklisting for immediate logout invalidation.",
     technicalImpact: [
-      "Engineered structured prompt schemas for Gemini AI evaluation — each prompt constrains the model to return JSON-formatted scores across rubric dimensions (technical accuracy, communication clarity, depth of explanation). Structured outputs eliminate post-processing parsing errors compared to unstructured text responses.",
-      "Built headless PDF compilation pipeline: server spawns a Puppeteer Chromium instance, injects candidate evaluation data into a dynamic HTML template, renders to PDF, and streams the binary response as a Content-Disposition: attachment download. Avoids client-side PDF libraries and keeps sensitive scoring data server-side.",
-      "Implemented JWT token blacklisting using a server-side in-memory store with TTL-matched expiry windows. On logout, the active token is immediately added to the blacklist — closing the window between logout action and natural token expiry that would otherwise allow token reuse.",
-      "Decoupled business logic into three independent service classes: AI communication service, PDF generation service, and candidate profile service. Controllers act as thin orchestrators; no business logic lives in route handlers. Each service can be tested and replaced independently.",
+      "Structured Gemini AI prompts with JSON schema constraints — model returns typed rubric scores (accuracy, communication, depth) with no text parsing required.",
+      "Headless Puppeteer PDF pipeline: server renders dynamic HTML with candidate data and streams binary PDF as Content-Disposition download — evaluation data never leaves server.",
+      "JWT token blacklisting with TTL-matched in-memory store — logout immediately invalidates the active token, closing the reuse window before natural expiry.",
+      "Three independent service classes (AI, PDF, candidate profile) — controllers are thin orchestrators. Swapping the AI provider requires zero controller changes.",
     ],
     skills: ["Node.js", "Express.js", "MongoDB", "React.js", "Puppeteer", "Gemini AI API", "JWT + Blacklisting", "MVC Architecture"],
-    reflection: "The hardest part was not the AI integration — it was structuring the service layer so that swapping the AI provider would not require touching the controller or PDF layer. Clean separation of concerns is not an aesthetic preference; it is an operational requirement.",
+    reflection: "Structuring the service layer so that swapping the AI provider doesn't touch the controller or PDF layer — clean separation is not aesthetic, it's operational.",
   },
   {
     title: "Real-Time Communication Platform Engineer",
@@ -61,14 +60,14 @@ const experiences = [
     location: "India",
     type: "SYSTEM ENGINEERING",
     overview:
-      "Engineered a scalable full-stack chat platform with instant private messaging, online/offline presence tracking, conversation history persistence, and perceived-instant message delivery via optimistic UI updates on the React client.",
+      "Full-stack chat platform with instant private messaging, online/offline presence, conversation history, and perceived-instant delivery via optimistic UI.",
     technicalImpact: [
-      "Built Socket.IO room management protocols for message delivery and read status synchronization. Each private conversation maintains a dedicated room; server broadcasts events to room members rather than polling clients — eliminating unnecessary network traffic.",
-      "Implemented optimistic UI message updates on the React client: messages appear in the conversation thread instantly on send, before server acknowledgment. Failed sends trigger visual rollback with inline error state — maintaining perceived responsiveness without compromising data integrity.",
-      "Designed MongoDB conversation aggregation pipeline with $lookup joins and cursor-based pagination for fetching chat history. Indexed on conversation ID and timestamp fields to ensure paginated loads remain O(log n) rather than degrading with conversation length.",
+      "Socket.IO room management per conversation — server broadcasts to room members only, eliminating unnecessary traffic and cross-conversation event leakage.",
+      "Optimistic UI: messages appear instantly on send before server ACK. Failed sends trigger visible rollback with inline error state — no spinners, just feedback.",
+      "MongoDB aggregation with $lookup joins and cursor-based pagination (keyed on _id, not offset) — stable under concurrent inserts, O(log n) regardless of conversation length.",
     ],
     skills: ["Node.js", "Express.js", "MongoDB", "React.js", "Socket.IO", "JWT", "Optimistic UI", "Tailwind CSS"],
-    reflection: "Optimistic UI taught me that perceived performance and actual performance are different problems. The user experience improvement from showing the message instantly is significant — but it requires careful design of the rollback path when the server rejects.",
+    reflection: "Perceived performance and actual performance are different problems. The UX improvement from showing the message instantly is significant — but it requires a careful rollback design.",
   },
   {
     title: "Agentic AI Application Builder",
@@ -77,14 +76,14 @@ const experiences = [
     location: "India",
     type: "AI & FULL-STACK PLATFORM",
     overview:
-      "Built an AI application generator that converts natural language product requirements into production-ready web application codebases with interactive previews. Uses prompt chaining — a pipeline of structured sequential Gemini API calls that incrementally build complete codebases rather than attempting single-shot full-project generation.",
+      "AI code generator that converts natural language requirements into production-ready web apps using prompt chaining — sequential Gemini API calls that build codebases incrementally.",
     technicalImpact: [
-      "Engineered multi-step prompt chaining pipeline: first call generates project structure and component inventory, subsequent calls generate individual files with full context from previously generated siblings. Chained context significantly reduces hallucination rates versus single-prompt full-project generation.",
-      "Built workspace management API allowing users to create, fork, version, and delete generated application workspaces. Each workspace is a MongoDB document tree with snapshot versioning — users can restore any prior state of their generated codebase.",
-      "Implemented per-user sliding-window rate limiting on AI generation endpoints using in-memory counters with TTL reset. Prevents cost runaway from automated abuse while preserving acceptable generation throughput for legitimate users.",
+      "Multi-step prompt chaining: first call generates project structure and component inventory; subsequent calls generate files with full context from prior siblings — significantly reduces hallucination vs. single-shot generation.",
+      "Workspace versioning: MongoDB document tree with snapshot array. fork() deep-copies current state — zero file system operations required for branching.",
+      "Per-user sliding-window rate limiting on AI endpoints — prevents cost runaway from abuse while maintaining fair throughput for legitimate users.",
     ],
     skills: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Gemini AI", "Prompt Engineering", "Rate Limiting"],
-    reflection: "Prompt chaining shifts the problem from 'write a perfect prompt' to 'design a generation workflow'. Treating AI as a service layer with defined input/output contracts at each step makes the system more reliable and debuggable than single-shot generation.",
+    reflection: "Treating AI as a service layer with defined input/output contracts at each chaining step makes generation more reliable and debuggable than single-shot prompting.",
   },
   {
     title: "URL Shortening & Analytics Microservice",
@@ -93,14 +92,14 @@ const experiences = [
     location: "India",
     type: "SYSTEM ENGINEERING",
     overview:
-      "Production-grade URL shortening microservice with low-latency redirection, collision-resistant Base-62 short-code generation, and a real-time analytics dashboard computing click distributions, referrer sources, and temporal usage patterns via MongoDB aggregation pipelines.",
+      "Production-grade URL shortening microservice with covered-index redirections, Base-62 collision-resistant encoding, and MongoDB aggregation analytics.",
     technicalImpact: [
-      "Optimized MongoDB index on short-code hash fields: redirection lookups resolve in single-digit milliseconds under concurrent request load because the query is a covered index scan — zero document reads required, only index traversal.",
-      "Implemented Base-62 encoding algorithm (alphanumeric charset) with collision detection loop — generated codes are verified unique against the existing index before persistence, with retry logic for the rare collision case.",
-      "Constructed MongoDB aggregation pipeline computing real-time telemetry: daily click distributions ($group by date), top referrer domains ($group by referrer header), device breakdown by User-Agent parsing, and temporal usage heatmaps.",
+      "Covered index on short_code field: redirections are pure index-tree traversals — zero document reads, single-digit millisecond P99 latency under concurrent load.",
+      "Base-62 encoding (alphanumeric charset) with collision detection loop — rare collisions are handled correctly, not silently ignored.",
+      "MongoDB aggregation pipeline computing click distributions by date, top referrer domains, and device breakdown via User-Agent parsing — no separate analytics store needed.",
     ],
     skills: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "REST APIs", "Aggregation Pipelines", "Base-62 Encoding"],
-    reflection: "Index design on the short-code field was the entire performance story for this service. The difference between a covered index scan and a collection scan is not a constant factor — it scales with collection size. Getting this right from the start prevented future pain.",
+    reflection: "Index design on the short-code field was the entire performance story. The gap between a covered index scan and a collection scan scales with collection size — get it right from the start.",
   },
 ];
 
@@ -112,14 +111,11 @@ const ExperienceTimeline = () => {
         {/* PAGE HEADER */}
         <div className="border-b border-[#deddd7] pb-5 sm:pb-6 mb-8 sm:mb-10">
           <h1 className="font-serif italic font-bold text-2xl sm:text-3xl md:text-[38px] text-[#111111] mb-1 tracking-[-0.02em]">
-            Work Experience & Engineering Roles
+            Work Experience
           </h1>
           <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000]">
-            Professional internship, independent system builds, and the engineering reasoning behind each
+            Professional internship, independent system builds, and the engineering decisions behind each.
           </h3>
-          <p className="text-sm text-[#666666] mt-2 max-w-3xl">
-            Each entry below goes beyond a bullet-point summary — it documents the specific technical decisions made, the constraints that drove them, and the lessons that carried forward. This is how I think about engineering work, not just what I built.
-          </p>
         </div>
 
         {/* TIMELINE ENTRIES */}
@@ -157,7 +153,7 @@ const ExperienceTimeline = () => {
               {/* TECHNICAL IMPACT */}
               <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 bg-white/60">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#888888] block mb-3">
-                  Technical Contributions & Implementation Details
+                  Technical Contributions
                 </span>
                 <div className="space-y-3">
                   {job.technicalImpact.map((item, i) => {
@@ -212,7 +208,7 @@ const ExperienceTimeline = () => {
               Available for new roles
             </h3>
             <p className="text-sm text-[#666666] max-w-lg">
-              I am actively seeking software engineering positions — full-time, remote or on-site — where I can work on technically challenging problems with a team that values code quality and engineering depth.
+              Actively seeking full-time software engineering positions — remote or on-site — where I can work on hard problems with a team that values code quality and engineering depth.
             </p>
           </div>
           <a

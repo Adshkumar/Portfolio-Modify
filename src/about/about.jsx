@@ -51,7 +51,7 @@ const About = () => {
             About
           </h1>
           <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000]">
-            Engineering background, technical methodology, and how I think about building software systems
+            Full-stack engineer based in New Delhi — building distributed systems and production-grade web apps.
           </h3>
         </div>
 
@@ -74,16 +74,13 @@ const About = () => {
 
             <div className="content editorial-content text-[#333333] space-y-0 text-[14.5px] sm:text-[15.5px] leading-relaxed">
               <p>
-                I am a full-stack software engineer based in New Delhi, India, focused on distributed systems, real-time event architectures, and production-grade web applications. My engineering background spans the full stack — from geospatial MongoDB query optimization and Socket.IO event pipeline design on the backend, to Redux Toolkit state machines and optimistic UI rendering on the frontend.
+                I'm a full-stack software engineer from New Delhi — I build real-time backends with Node.js, Express, MongoDB, and Socket.IO, and React/Redux Toolkit frontends with optimistic UI and clean state management.
               </p>
               <p>
-                I approach software with a systems-design mindset. Before writing code, I ask: what are the concurrency requirements? What indexing strategy minimizes query latency at scale? Where are the failure modes, and how should they surface to clients? This thinking informs how I model data, design API contracts, and structure state management — not just as implementation details, but as primary design decisions.
+                My work includes distributed systems (Uber-style dispatch with 2dsphere geospatial indexing and FSM ride lifecycle), AI-integrated platforms (Gemini API, Puppeteer PDF pipelines), and cross-platform mobile apps with React Native and Expo.
               </p>
               <p>
-                Outside of production work, I practice algorithmic problem solving on LeetCode in modern C++ — not because interviews require it, but because writing optimal code under constraints trains the kind of precision that carries over to production systems. I focus on understanding <em>why</em> an algorithm works at the complexity level, not just getting accepted solutions.
-              </p>
-              <p>
-                I am actively seeking software engineering roles where I can work on technically challenging problems, with teams that value code quality, clear ownership, and systems that are observable and maintainable in production.
+                I practice algorithmic problem solving on LeetCode in C++ — 150+ problems across dynamic programming, graphs, and sliding windows. I'm actively looking for software engineering roles where I can work on hard problems with teams that care about quality.
               </p>
             </div>
 
@@ -107,25 +104,25 @@ const About = () => {
         {/* HOW I WORK SECTION */}
         <div className="mb-10 pb-8 border-b border-[#deddd7]">
           <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111] mb-2">How I Work</h2>
-          <p className="text-sm text-[#666666] mb-6">The engineering practices I apply consistently — not aspirational, but operational habits that show up in code reviews and architecture decisions.</p>
+          <p className="text-sm text-[#666666] mb-6">Operational habits that show up in code reviews and architecture decisions — not aspirational, just how I actually build.</p>
 
           <div className="space-y-5">
             {[
               {
-                title: "I model data access patterns before writing schemas",
-                desc: "The database schema should reflect how data will be queried, not just how it is logically structured. Before designing a Mongoose model, I identify the three or four most performance-critical queries, then design indexes specifically for those access patterns. For the Uber dispatch system, this meant 2dsphere geospatial indexes on driver coordinates before a single API route was written.",
+                title: "Schema design follows access patterns, not logic",
+                desc: "Before writing a Mongoose model, I identify the performance-critical queries and design indexes for those patterns. For the Uber dispatch system, 2dsphere indexes on driver coordinates came before any API route.",
               },
               {
-                title: "I keep API contracts explicit and stable",
-                desc: "API consumers should not need to read implementation code to understand a service. I define request schemas with validation middleware (not inline route handlers), document error responses with consistent codes and messages, and treat breaking changes to public interfaces with the same seriousness as breaking changes to a database schema.",
+                title: "API contracts are explicit and stable",
+                desc: "Request validation lives in middleware, not route handlers. Error responses follow consistent codes and messages. Breaking changes to public interfaces are treated as seriously as schema migrations.",
               },
               {
                 title: "Frontend state has clear ownership boundaries",
-                desc: "Component-local state for UI interactions. Redux slices for server-synchronized application state with explicit invalidation. Optimistic updates for perceived performance, with explicit rollback handlers. I treat React state management the same way I treat database transactions: operations should be deterministic and have a defined failure path.",
+                desc: "Component-local state for UI. Redux slices for server-synchronized state with explicit invalidation. Optimistic updates for perceived performance, with rollback on failure.",
               },
               {
-                title: "Security constraints are baked into architecture, not retrofitted",
-                desc: "JWT tokens belong in HTTP-only cookies. Input validation belongs on the server, regardless of what the client validates. Session revocation needs a mechanism (token blacklisting) because token expiry alone leaves a window. These decisions are made during architecture design — adding them later breaks existing contracts.",
+                title: "Security is designed in, not bolted on",
+                desc: "JWT in HTTP-only cookies. Server-side input validation regardless of client checks. Token blacklisting on logout — expiry alone leaves a reuse window.",
               },
             ].map((item) => (
               <div key={item.title} className="border-l-2 border-[#fa0000] pl-4">
@@ -140,15 +137,15 @@ const About = () => {
         <div className="mb-10 pb-8 border-b border-[#deddd7]">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-4">
             <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111]">
-              Algorithmic Problem Solving
+              LeetCode — Algorithmic Practice
             </h2>
             <span className="font-mono text-xs text-[#fa0000] font-bold whitespace-nowrap">
-              C++ · Data Structures & Complexity
+              C++ · DSA · Complexity Analysis
             </span>
           </div>
 
           <p className="text-[14.5px] sm:text-[15px] text-[#444444] leading-relaxed mb-5">
-            I practice on LeetCode not as interview preparation but as deliberate complexity analysis training. Every accepted solution gets reviewed for: what is the actual time complexity (not just Big-O class), what is the memory allocation pattern, and is there a version with better cache locality. I solve in modern C++ specifically because the language forces awareness of memory layout and copy vs. move semantics that higher-level languages abstract away.
+            I solve in C++ — not just for interviews, but because the language forces awareness of memory layout, copy vs. move semantics, and cache efficiency that higher-level languages abstract away. Every solution gets reviewed for actual time complexity, not just Big-O class.
           </p>
 
           <div className="bg-white border border-[#deddd7] rounded-lg p-4">
@@ -179,42 +176,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* CORE ENGINEERING PHILOSOPHY */}
-        <div className="mb-10 pb-8 border-b border-[#deddd7]">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111] mb-2">Core Principles</h2>
-          <p className="text-sm text-[#666666] mb-6">Principles that have proven durable across different stacks and project sizes.</p>
-
-          <div className="space-y-4">
-            {[
-              {
-                title: "Simplicity is a constraint, not a style preference",
-                desc: "The simplest implementation that correctly handles all required cases is usually the best. This requires active effort to resist over-engineering — especially in early stages where future requirements are unclear.",
-              },
-              {
-                title: "Every database query is an architecture decision",
-                desc: "Unindexed queries on large collections are not a performance problem — they are a design flaw. Database access patterns should inform schema design, not the reverse.",
-              },
-              {
-                title: "Deterministic state, always",
-                desc: "If you cannot predict the exact state of your system given a sequence of inputs, you cannot debug it when it fails. This applies to Redux slices, WebSocket event streams, and API response contracts equally.",
-              },
-              {
-                title: "Fail explicitly, not silently",
-                desc: "Silent failures and swallowed errors compound into production incidents. Functions should return typed errors or throw. API responses should include structured error codes. Logs should contain enough context to reproduce the failure without a debugger.",
-              },
-              {
-                title: "Read code more than you write it",
-                desc: "Understanding existing systems — how they handle edge cases, where they cut corners, what tradeoffs they made — is more valuable than writing more code. Most engineering work is understanding, not creation.",
-              },
-            ].map((principle) => (
-              <div key={principle.title} className="border-l-2 border-[#fa0000] pl-3.5">
-                <strong className="text-[15px] font-bold text-[#111111] block mb-0.5">{principle.title}</strong>
-                <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">{principle.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
 
