@@ -24,10 +24,10 @@ const Projects = () => {
       description:
         "High-concurrency backend replicating Uber's ride-hailing infrastructure with real-time state synchronization, geospatial proximity queries, and FSM-governed ride lifecycle.",
       longDescription:
-        "Not a tutorial clone — this implements real distributed system primitives. Socket.IO room-based pub/sub for sub-100ms driver location broadcasting. MongoDB 2dsphere indexes for geospatial $geoNear driver dispatch queries. Finite State Machine governing ride transitions (Requested → Accepted → In Transit → Completed) with atomic mutations preventing simultaneous acceptance race conditions. JWT bearer middleware with role-based guards (passenger vs. driver).",
+        "Not a tutorial clone — this implements real distributed system primitives. Socket.IO room-based pub/sub for sub-100ms driver location broadcasting. MongoDB 2dsphere indexes for geospatial $geoNear driver dispatch queries. Finite State Machine governing ride transitions (Requested → Accepted → In Transit → Completed → Cancelled) with atomic mutations preventing race conditions on simultaneous acceptance. JWT bearer middleware with role-based guards (passenger vs. driver).",
       architecture: [
         "WebSocket Architecture: Socket.IO room-per-ride isolation. Each ride channel handles driver location broadcasts and state transition events independently. Server-side disconnect handlers clean up stale room state automatically.",
-        "Geospatial Dispatch: $geoNear aggregation on 2dsphere-indexed driver coordinates resolves nearest-driver queries in sub-second time regardless of fleet size — eliminates full collection scans.",
+        "Geospatial Dispatch: $geoNear aggregation on 2dsphere-indexed driver coordinates resolves nearest-driver queries in sub-second time — eliminates full collection scans at any fleet size.",
         "FSM with Atomic Mutations: findOneAndUpdate with state guards ensures only one driver can transition a ride past Requested state, even under concurrent acceptance requests from multiple drivers.",
         "Auth Layer: Modular JWT middleware chain — token extraction, signature verification, role assertion — applied per-route, not globally, to allow public endpoints to coexist.",
       ],
@@ -59,7 +59,7 @@ const Projects = () => {
       id: 3,
       title: "AI Interview Simulation & PDF Report Platform",
       category: "fullstack",
-      tag: "GEMINI AI • PUPPETEER PIPELINE • TOKEN BLACKLISTING • SERVICE LAYERS",
+      tag: "GEMINI API • PUPPETEER PIPELINE • TOKEN BLACKLISTING • SERVICE LAYERS",
       status: "FULL-STACK PLATFORM",
       description:
         "Full-stack platform conducting AI-powered technical mock interviews with structured rubric evaluation, headless PDF compilation via Puppeteer, and immediate session revocation via token blacklisting.",
@@ -84,7 +84,7 @@ const Projects = () => {
       description:
         "AI code generator converting natural language requirements into deployable web applications using multi-step prompt chaining — not single-shot generation — with workspace versioning and rate limiting.",
       longDescription:
-        "Prompt chaining pipeline: first call generates project structure and component inventory; subsequent calls generate individual files with full context from previously generated siblings. Chained context significantly reduces hallucination versus single-prompt generation. Workspace versioning allows snapshot + rollback of any generation state. Per-user sliding-window rate limiting on AI endpoints prevents cost runaway while maintaining fair throughput.",
+        "Prompt chaining pipeline: first call generates project structure and component inventory; subsequent calls generate files with full context from previously generated siblings. Chained context significantly reduces hallucination versus single-prompt generation. Workspace versioning allows snapshot + rollback of any generation state. Per-user sliding-window rate limiting on AI endpoints prevents cost runaway while maintaining fair throughput.",
       architecture: [
         "Prompt Chaining: Multi-step generation where each API call receives prior output as context. File generation calls see the project structure and sibling files — eliminating import errors and inconsistent naming that plague single-shot generation.",
         "Workspace Versioning: MongoDB document tree per workspace with snapshot array. fork() operation deep-copies the current state to a new workspace document — zero file system operations required.",
@@ -120,7 +120,7 @@ const Projects = () => {
       tag: "BASE-62 ENCODING • COVERED INDEX SCANS • AGGREGATION PIPELINES",
       status: "PRODUCTION MICROSERVICE",
       description:
-        "URL shortening microservice with single-digit millisecond redirection latency via covered index scans, Base-62 collision-resistant encoding, and MongoDB aggregation analytics pipelines.",
+        "URL shortening microservice with covered-index redirections, Base-62 collision-resistant encoding, and MongoDB aggregation analytics.",
       longDescription:
         "Redirection is the hot path — short-code lookups use a covered index scan on the hash field: zero document reads, only index traversal. Sub-10ms P99 under realistic load. Base-62 charset (alphanumeric) with collision detection loop generates concise, readable codes. Analytics pipeline uses $group by date, referrer domain, and parsed User-Agent strings to compute click distributions, top sources, and device breakdowns without separate analytics databases.",
       architecture: [
@@ -286,13 +286,13 @@ const Projects = () => {
 
               {/* DESCRIPTION */}
               <p className="text-[15px] sm:text-[15.5px] text-[#333333] leading-relaxed mb-4 max-w-3xl">
-                {project.longDescription}
+                {project.description}
               </p>
 
               {/* ARCHITECTURE BULLETS */}
               {project.architecture && (
-                <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 bg-white/60">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#888888] block mb-3">
+                <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 space-y-2.5 bg-white">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#888888] block">
                     Technical Implementation Notes
                   </span>
                   <div className="space-y-2.5">
@@ -309,7 +309,7 @@ const Projects = () => {
                         );
                       }
                       return (
-                        <div key={i} className="text-[13px] text-[#444444] leading-relaxed flex items-start gap-2">
+                        <div key={i} className="text-[13px] text-[#444444] flex items-start gap-2 leading-relaxed">
                           <span className="text-[#fa0000] font-bold mt-0.5 flex-shrink-0">•</span>
                           <span>{arch}</span>
                         </div>
@@ -336,7 +336,7 @@ const Projects = () => {
 
       </div>
 
-      {/* GLOBAL FOOTER WITH DESKTOP-ONLY GIANT WAVE BANNER */}
+      {/* GLOBAL FOOTER */}
       <Footer />
 
       {/* PROJECT DETAIL MODAL */}

@@ -83,13 +83,13 @@ const Contact = () => {
   return (
     <section className="w-full bg-transparent pt-16 sm:pt-24 md:pt-28 pb-0 min-h-screen">
       <div className="w-full max-w-[1400px] px-3 sm:px-6 md:px-12 lg:px-16 xl:px-20">
-        
+
         {/* PAGE HEADER */}
         <div className="border-b border-[#deddd7] pb-5 sm:pb-6 mb-8 sm:mb-10">
           <h1 className="font-serif italic font-bold text-2xl sm:text-3xl md:text-[38px] text-[#111111] mb-1 tracking-[-0.02em]">
             Get in Touch
           </h1>
-          <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000]">
+          <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000] mb-2">
             Direct channels for engineering roles, technical discussions, and collaboration
           </h3>
           <p className="text-sm text-[#666666] mt-2 max-w-2xl">
@@ -99,10 +99,10 @@ const Contact = () => {
 
         {/* TWO-COLUMN LAYOUT */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 mb-12 sm:mb-14">
-          
+
           {/* LEFT: DIRECT CONTACT DETAILS */}
           <div>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111] mb-2 sm:mb-3">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111] mb-2">
               Direct Communication
             </h2>
             <p className="text-[14.5px] sm:text-[15px] text-[#444444] leading-relaxed mb-6">
@@ -111,7 +111,7 @@ const Contact = () => {
 
             <div className="space-y-4 mb-6 sm:mb-8">
               {/* EMAIL */}
-              <div className="border-l-2 border-[#fa0000] pl-3.5">
+              <div className="border-l-2 border-[#fa0000] pl-3.5 py-1.5">
                 <span className="font-mono text-[11px] uppercase tracking-wider text-[#777777] block">
                   Primary Email
                 </span>
@@ -132,7 +132,7 @@ const Contact = () => {
               </div>
 
               {/* LOCATION */}
-              <div className="border-l-2 border-[#deddd7] pl-3.5">
+              <div className="border-l-2 border-[#deddd7] pl-3.5 py-1.5">
                 <span className="font-mono text-[11px] uppercase tracking-wider text-[#777777] block">
                   Location &amp; Availability
                 </span>
@@ -149,7 +149,7 @@ const Contact = () => {
               </div>
 
               {/* LINKEDIN */}
-              <div className="border-l-2 border-[#deddd7] pl-3.5">
+              <div className="border-l-2 border-[#deddd7] pl-3.5 py-1.5">
                 <span className="font-mono text-[11px] uppercase tracking-wider text-[#777777] block">
                   Professional Network
                 </span>
@@ -176,7 +176,7 @@ const Contact = () => {
                   { label: "Technical Stack", desc: "Node.js, React, distributed systems, database optimization, or AI integration — these are where I can contribute immediately." },
                   { label: "Observable Systems", desc: "Production environments with structured logging, meaningful error tracking, and teams who investigate failures rather than deploying hotfixes and moving on." },
                 ].map((s) => (
-                  <li key={s.label} className="border-l-2 border-[#deddd7] pl-3">
+                  <li key={s.label} className="border-l-2 border-[#deddd7] pl-3 py-2">
                     <span className="font-bold text-[13px] text-[#111111] block">{s.label}</span>
                     <span className="text-xs text-[#555555] leading-relaxed">{s.desc}</span>
                   </li>
@@ -300,7 +300,7 @@ const Contact = () => {
 
       </div>
 
-      {/* GLOBAL FOOTER WITH DESKTOP-ONLY GIANT WAVE BANNER */}
+      {/* GLOBAL FOOTER */}
       <Footer />
     </section>
   );

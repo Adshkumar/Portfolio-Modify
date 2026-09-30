@@ -46,7 +46,7 @@ const experiences = [
       "Full-stack mock interview platform — Gemini AI for structured rubric evaluation, Puppeteer PDF report generation, and server-side token blacklisting for immediate logout invalidation.",
     technicalImpact: [
       "Structured Gemini AI prompts with JSON schema constraints — model returns typed rubric scores (accuracy, communication, depth) with no text parsing required.",
-      "Headless Puppeteer PDF pipeline: server renders dynamic HTML with candidate data and streams binary PDF as Content-Disposition download — evaluation data never leaves server.",
+      "Headless Puppeteer PDF pipeline: server renders dynamic HTML with candidate data and streams compiled PDF as binary download — evaluation data never leaves server-side rendering.",
       "JWT token blacklisting with TTL-matched in-memory store — logout immediately invalidates the active token, closing the reuse window before natural expiry.",
       "Three independent service classes (AI, PDF, candidate profile) — controllers are thin orchestrators. Swapping the AI provider requires zero controller changes.",
     ],
@@ -78,8 +78,8 @@ const experiences = [
     overview:
       "AI code generator that converts natural language requirements into production-ready web apps using prompt chaining — sequential Gemini API calls that build codebases incrementally.",
     technicalImpact: [
-      "Multi-step prompt chaining: first call generates project structure and component inventory; subsequent calls generate files with full context from prior siblings — significantly reduces hallucination vs. single-shot generation.",
-      "Workspace versioning: MongoDB document tree with snapshot array. fork() deep-copies current state — zero file system operations required for branching.",
+      "Multi-step prompt chaining: first call generates project structure and component inventory; subsequent calls generate files with full context from prior outputs — significantly reduces hallucination vs. single-shot generation.",
+      "Workspace versioning: MongoDB document tree with snapshot array. fork() deep-copies the current state to a new workspace document — zero file system operations required for branching.",
       "Per-user sliding-window rate limiting on AI endpoints — prevents cost runaway from abuse while maintaining fair throughput for legitimate users.",
     ],
     skills: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Gemini AI", "Prompt Engineering", "Rate Limiting"],
@@ -151,7 +151,7 @@ const ExperienceTimeline = () => {
               </p>
 
               {/* TECHNICAL IMPACT */}
-              <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 bg-white/60">
+              <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 bg-white">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#888888] block mb-3">
                   Technical Contributions
                 </span>
@@ -192,7 +192,7 @@ const ExperienceTimeline = () => {
 
               {/* REFLECTION */}
               {job.reflection && (
-                <div className="border-l-2 border-[#deddd7] pl-3.5 mt-3">
+                <div className="border-l-2 border-[#deddd7] pl-3.5 py-2.5 mt-3">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-[#aaaaaa] block mb-0.5">What I took away</span>
                   <p className="text-xs sm:text-[13px] text-[#666666] leading-relaxed italic">{job.reflection}</p>
                 </div>
@@ -221,7 +221,7 @@ const ExperienceTimeline = () => {
 
       </div>
 
-      {/* GLOBAL FOOTER WITH DESKTOP-ONLY GIANT WAVE BANNER */}
+      {/* GLOBAL FOOTER */}
       <Footer />
     </section>
   );

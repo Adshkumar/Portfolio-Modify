@@ -7,7 +7,7 @@
 }
 
 /* ===================================================================
-   ARPIT BHAYANI TYPOGRAPHY & CSS VARIABLES
+   COLOR PALETTE (UNCHANGED — editorial professional palette)
 =================================================================== */
 :root {
   --bg-primary: #faf9f6;
@@ -38,7 +38,7 @@
 }
 
 /* ===================================================================
-   BASE RESET WITH ENGINEERING GRID PAPER BACKGROUND
+   BASE RESET — CLEAN WHITE, NO GRID PAPER
 =================================================================== */
 html {
   background-color: #faf9f6;
@@ -54,12 +54,7 @@ html {
 
 body {
   font-family: "Assistant", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #faf9f6;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
-  background-size: 26px 26px;
-  background-position: center top;
+  background: #faf9f6;
   color: #333333;
   line-height: 1.65;
   font-size: 1rem;
@@ -68,7 +63,7 @@ body {
 }
 
 /* ===================================================================
-   EDITORIAL CONTENT PARAGRAPHS (Exact Arpit .content a style)
+   EDITORIAL CONTENT
 =================================================================== */
 .editorial-content p {
   margin-bottom: 1.25rem;
@@ -103,7 +98,7 @@ body {
 }
 
 /* ===================================================================
-   SOCIAL PILLS (Exact from Arpit's inline design)
+   SOCIAL PILLS (clean, professional)
 =================================================================== */
 .social-pill-group {
   display: flex;
@@ -125,7 +120,6 @@ body {
   text-decoration: none !important;
   transition: all 0.15s ease;
   font-family: "Assistant", sans-serif;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .social-pill .icon {
@@ -144,7 +138,7 @@ body {
 }
 
 /* ===================================================================
-   EXPLORE CARDS (Arpit's Signature .explore-card)
+   EXPLORE CARDS (clean bordered cards)
 =================================================================== */
 .explore-section {
   margin: 2rem 0 3rem;
@@ -250,7 +244,7 @@ body {
 }
 
 /* ===================================================================
-   RECENT LIST ITEMS (Arpit's date + title row layout)
+   RECENT LIST ITEMS (date + title row layout)
 =================================================================== */
 .recent-list li {
   overflow: hidden;
@@ -290,7 +284,7 @@ body {
 }
 
 /* ===================================================================
-   BOX STYLE (Arpit's .box overrides)
+   BOX STYLE (clean bordered container)
 =================================================================== */
 .box {
   background-color: #ffffff;
@@ -309,7 +303,7 @@ body {
 }
 
 /* ===================================================================
-   NAVBAR ACTIVE / HOVER STATE (Arpit's border-bottom 5px)
+   NAVBAR ACTIVE / HOVER STATE
 =================================================================== */
 .nav-item {
   border-bottom: transparent solid 4px;
@@ -404,33 +398,21 @@ textarea:focus-visible {
 }
 
 /* ===================================================================
-   DESKTOP FOOTER ANIMATED LIQUID WAVE TEXT FILL
+   LIQUID WAVE ANIMATIONS (kept for compatibility)
 =================================================================== */
 @keyframes waveFlowFront {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-800px);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-800px); }
 }
 
 @keyframes waveFlowBack {
-  0% {
-    transform: translateX(-400px);
-  }
-  100% {
-    transform: translateX(400px);
-  }
+  0% { transform: translateX(-400px); }
+  100% { transform: translateX(400px); }
 }
 
 @keyframes waveRiseTide {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .liquid-wave-layer-front {
@@ -448,7 +430,6 @@ textarea:focus-visible {
   will-change: transform;
 }
 
-/* Liquid fill rising from bottom */
 .liquid-fill-rise {
   transform: translateY(140px);
   transition: transform 3.2s cubic-bezier(0.16, 1, 0.3, 1);

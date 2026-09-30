@@ -82,7 +82,7 @@ const Education = () => {
           <h1 className="font-serif italic font-bold text-2xl sm:text-3xl md:text-[38px] text-[#111111] mb-1 tracking-[-0.02em]">
             Academic Background & Self-Directed Study
           </h1>
-          <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000]">
+          <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000] mb-2">
             Formal education, independent engineering curriculum, and how theory connects to production systems
           </h3>
           <p className="text-sm text-[#666666] mt-2 max-w-3xl">
@@ -110,7 +110,7 @@ const Education = () => {
                     {edu.degree}
                   </h2>
                 </div>
-                <div className="font-mono text-xs text-[#666666] sm:text-right flex-shrink-0">
+                <div className="font-mono text-xs text-[#666666] sm:text-right whitespace-nowrap flex-shrink-0 mt-1">
                   <div>{edu.period}</div>
                   <div className="text-[#888888]">{edu.location}</div>
                 </div>
@@ -121,7 +121,7 @@ const Education = () => {
               </p>
 
               {/* COURSEWORK */}
-              <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 bg-white/60">
+              <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 bg-white">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#888888] block mb-2.5">
                   Core Disciplines & Coursework
                 </span>
@@ -158,7 +158,7 @@ const Education = () => {
         {/* SELF-DIRECTED CURRICULUM */}
         <div className="mb-12 pb-10 border-b border-[#deddd7]">
           <div className="mb-6">
-            <h2 className="font-serif italic font-bold text-2xl text-[#111111] mb-2">
+            <h2 className="font-serif italic font-bold text-2xl md:text-[28px] text-[#111111] mb-2">
               Self-Directed Engineering Curriculum
             </h2>
             <p className="text-sm text-[#666666] max-w-3xl">
@@ -183,16 +183,16 @@ const Education = () => {
 
         {/* CERTIFICATIONS */}
         <div className="mb-14">
-          <h2 className="font-serif italic font-bold text-2xl text-[#111111] mb-4">
+          <h2 className="font-serif italic font-bold text-2xl md:text-[28px] text-[#111111] mb-4">
             Certifications & Credentials
           </h2>
-          <div className="border border-[#e6e4dc] rounded-lg p-5 bg-white/60">
+          <div className="border border-[#e6e4dc] rounded-lg p-5 bg-white">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div>
                 <span className="font-mono text-[10px] font-bold text-[#fa0000] uppercase tracking-widest block mb-1.5">
                   Certificate of Completion
                 </span>
-                <h3 className="font-bold text-[17px] text-[#111111] mb-1">
+                <h3 className="font-bold text-[17px] md:text-xl text-[#111111] mb-1">
                   Full-Stack Web Engineering
                 </h3>
                 <p className="text-sm text-[#555555] max-w-2xl leading-relaxed">
@@ -213,7 +213,7 @@ const Education = () => {
 
       </div>
 
-      {/* GLOBAL FOOTER WITH DESKTOP-ONLY GIANT WAVE BANNER */}
+      {/* GLOBAL FOOTER */}
       <Footer />
     </section>
   );

@@ -9,7 +9,7 @@ const Hero = () => {
 
         {/* ============================================================
             MOBILE LAYOUT
-        ============================================================= */}
+        ============================================================== */}
         <div className="block md:hidden mb-6">
           {/* Image + name row */}
           <div className="flex items-center gap-4 mb-3">
@@ -70,7 +70,7 @@ const Hero = () => {
 
         {/* ============================================================
             DESKTOP LAYOUT
-        ============================================================= */}
+        ============================================================== */}
         <div className="hidden md:block">
 
           {/* H1 */}
@@ -131,7 +131,7 @@ const Hero = () => {
                 <img
                   src="/images/adarsh.jpg"
                   alt="Adarsh Kumar"
-                  className="w-full max-w-[260px] lg:max-w-[300px] xl:max-w-[320px] aspect-square object-cover rounded-[28px] border border-[#deddd7] shadow-xs hover:shadow-md transition-all duration-300"
+                  className="w-full max-w-[260px] lg:max-w-[300px] xl:max-w-[320px] aspect-square object-cover rounded-[28px] border border-[#deddd7] shadow-xs"
                 />
               </div>
             </div>

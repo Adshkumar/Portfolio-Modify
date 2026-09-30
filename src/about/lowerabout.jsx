@@ -52,7 +52,7 @@ const LowerAbout = () => {
     <div>
       {/* SECTION HEADING */}
       <div className="mb-6">
-        <h2 className="font-serif italic font-bold text-xl sm:text-2xl text-[#111111] mb-1">
+        <h2 className="font-serif italic font-bold text-xl sm:text-2xl md:text-[28px] text-[#111111] mb-1">
           Technical Skills
         </h2>
         <p className="text-xs sm:text-sm text-[#666666] max-w-2xl">
@@ -65,7 +65,7 @@ const LowerAbout = () => {
         {skillCategories.map((group) => (
           <div
             key={group.title}
-            className="border border-[#e6e4dc] rounded-lg p-4 bg-white/60"
+            className="border border-[#e6e4dc] rounded-lg p-4 bg-white"
           >
             <h3 className="font-sans font-bold text-sm text-[#111111] mb-3 uppercase tracking-wide">
               {group.title}

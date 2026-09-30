@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import LowerAbout from './lowerabout';
-import Footer from '../components/Footer';
+import LowerAbout from "./lowerabout";
+import Footer from "../components/Footer";
 
 const fallbackLeetcodeStats = {
   solved: 154,
   total: 4046,
-  percentage: (154 / 4046) * 100
+  percentage: (154 / 4046) * 100,
 };
 
 const About = () => {
@@ -50,9 +50,12 @@ const About = () => {
           <h1 className="font-serif italic font-bold text-2xl sm:text-3xl md:text-[38px] text-[#111111] mb-1 tracking-[-0.02em]">
             About
           </h1>
-          <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000]">
+          <h3 className="font-serif italic font-medium text-base sm:text-lg md:text-xl text-[#fa0000] mb-2">
             Full-stack engineer based in New Delhi — building distributed systems and production-grade web apps.
           </h3>
+          <p className="text-sm text-[#666666] max-w-3xl mt-2">
+            I take academic coursework seriously because it teaches the "why" behind the tools — but formal education alone does not produce production engineers. This page documents both: the formal background and the self-directed curriculum built through shipping real systems.
+          </p>
         </div>
 
         {/* PROFILE + BIO */}
@@ -103,8 +106,12 @@ const About = () => {
 
         {/* HOW I WORK SECTION */}
         <div className="mb-10 pb-8 border-b border-[#deddd7]">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111] mb-2">How I Work</h2>
-          <p className="text-sm text-[#666666] mb-6">Operational habits that show up in code reviews and architecture decisions — not aspirational, just how I actually build.</p>
+          <h2 className="font-serif italic font-bold text-xl sm:text-2xl md:text-[28px] text-[#111111] mb-2">
+            How I Work
+          </h2>
+          <p className="text-sm text-[#666666] mb-6 max-w-2xl">
+            Operational habits that show up in code reviews and architecture decisions — not aspirational, just how I actually build.
+          </p>
 
           <div className="space-y-5">
             {[
@@ -125,7 +132,10 @@ const About = () => {
                 desc: "JWT in HTTP-only cookies. Server-side input validation regardless of client checks. Token blacklisting on logout — expiry alone leaves a reuse window.",
               },
             ].map((item) => (
-              <div key={item.title} className="border-l-2 border-[#fa0000] pl-4">
+              <div
+                key={item.title}
+                className="border-l-2 border-[#fa0000] pl-4 py-2"
+              >
                 <h3 className="font-sans font-bold text-sm sm:text-[15px] text-[#111111] mb-1">{item.title}</h3>
                 <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">{item.desc}</p>
               </div>
@@ -136,7 +146,7 @@ const About = () => {
         {/* ALGORITHMIC PROBLEM SOLVING */}
         <div className="mb-10 pb-8 border-b border-[#deddd7]">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-4">
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#111111]">
+            <h2 className="font-serif italic font-bold text-xl sm:text-2xl md:text-[28px] text-[#111111]">
               LeetCode — Algorithmic Practice
             </h2>
             <span className="font-mono text-xs text-[#fa0000] font-bold whitespace-nowrap">
@@ -144,7 +154,7 @@ const About = () => {
             </span>
           </div>
 
-          <p className="text-[14.5px] sm:text-[15px] text-[#444444] leading-relaxed mb-5">
+          <p className="text-[14.5px] sm:text-[15px] text-[#444444] leading-relaxed mb-5 max-w-3xl">
             I solve in C++ — not just for interviews, but because the language forces awareness of memory layout, copy vs. move semantics, and cache efficiency that higher-level languages abstract away. Every solution gets reviewed for actual time complexity, not just Big-O class.
           </p>
 
@@ -186,7 +196,7 @@ const About = () => {
 
       </div>
 
-      {/* GLOBAL FOOTER WITH DESKTOP-ONLY GIANT WAVE BANNER */}
+      {/* GLOBAL FOOTER */}
       <Footer />
     </section>
   );

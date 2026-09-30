@@ -187,7 +187,7 @@ const LowerHero = () => {
               href="/projects"
               className="text-xs sm:text-sm font-bold text-[#2222ff] hover:underline font-mono whitespace-nowrap self-start sm:self-auto"
             >
-              All Systems ({8}) →
+              All Systems ({systems.length}) →
             </a>
           </div>
 
@@ -246,7 +246,7 @@ const LowerHero = () => {
                 </p>
 
                 {/* ARCHITECTURAL BREAKDOWN */}
-                <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 space-y-3 bg-white/60">
+                <div className="border border-[#e6e4dc] rounded-lg p-4 mb-4 space-y-3 bg-white">
                   <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#888888] block">
                     Technical Implementation Notes
                   </span>
@@ -334,7 +334,7 @@ const LowerHero = () => {
         </div>
 
         {/* =====================================================
-            SECTION 3: ENGINEERING PRINCIPLES (DEEP)
+            SECTION 3: ENGINEERING PRINCIPLES
         ====================================================== */}
         <div className="pt-8 border-t border-[#deddd7] mb-14 sm:mb-16">
           <div className="mb-8 pb-3 border-b border-[#deddd7]">
@@ -350,7 +350,9 @@ const LowerHero = () => {
             {engineeringPrinciples.map((principle) => (
               <div key={principle.label} className="flex gap-5 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <span className="font-mono text-[11px] text-[#fa0000] font-bold">{principle.label}</span>
+                  <span className="font-mono text-[11px] text-[#fa0000] font-bold w-8 h-8 rounded-full flex items-center justify-center border border-[#fa0000]/20 bg-[#fa0000]/5">
+                    {principle.label}
+                  </span>
                 </div>
                 <div>
                   <h3 className="font-sans font-bold text-sm sm:text-[15px] text-[#111111] mb-1.5">
@@ -366,8 +368,8 @@ const LowerHero = () => {
         </div>
 
       </div>
-      
-      {/* GLOBAL FOOTER WITH DESKTOP-ONLY GIANT WAVE BANNER */}
+
+      {/* GLOBAL FOOTER */}
       <Footer />
     </div>
   );

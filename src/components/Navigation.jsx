@@ -38,19 +38,19 @@ const Navigation = () => {
     <>
       {/* FIXED NAVBAR */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 border-b border-[#deddd7] transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-40 border-b border-[#deddd7] transition-all duration-200 ${
           isScrolled
-            ? "bg-[#faf9f6]/95 backdrop-blur-md shadow-xs"
+            ? "bg-[#faf9f6]/85 backdrop-blur-md shadow-xs"
             : "bg-[#faf9f6]"
         }`}
         role="navigation"
         aria-label="main navigation"
       >
         <div className="w-full max-w-[1400px] px-3 sm:px-6 md:px-12 lg:px-16 xl:px-20 h-[52px] sm:h-[56px] flex items-center justify-between">
-          {/* BRAND: Pure Editorial Serif Heading */}
+          {/* BRAND */}
           <Link
             to="/home"
-            className="font-serif italic font-bold text-xl sm:text-2xl text-[#111111] tracking-tight hover:text-[#fa0000] transition-colors"
+            className="font-serif italic font-bold text-xl sm:text-2xl text-[#111111] tracking-tight hover:text-[#fa0000] transition-colors select-none"
           >
             Adarsh Kumar
           </Link>
@@ -64,7 +64,7 @@ const Navigation = () => {
                   <button
                     key={link.href}
                     onClick={handleResumeClick}
-                    className="ml-2 px-3 py-1 rounded-md border border-[#aeaeae] bg-white text-[#333333] text-[13px] font-bold cursor-pointer font-sans transition-all hover:border-[#fa0000] hover:text-[#fa0000] hover:shadow-2xs active:scale-95"
+                    className="ml-2 px-3 py-1 rounded-md border border-[#aeaeae] bg-white text-[#333333] text-[13px] font-bold cursor-pointer font-sans transition-all hover:border-[#fa0000] hover:text-[#fa0000] active:scale-95"
                   >
                     {link.label}
                   </button>
@@ -120,7 +120,7 @@ const Navigation = () => {
                       handleResumeClick(e);
                       setIsMenuOpen(false);
                     }}
-                    className="w-full mt-2 py-2.5 px-4 rounded-md border border-[#aeaeae] bg-white text-[#333333] text-sm font-bold cursor-pointer font-sans transition-all hover:border-[#fa0000] hover:text-[#fa0000] text-center shadow-2xs"
+                    className="w-full mt-2 py-2.5 px-4 rounded-md border border-[#aeaeae] bg-white text-[#333333] text-sm font-bold cursor-pointer font-sans transition-all hover:border-[#fa0000] hover:text-[#fa0000] text-center shadow-xs"
                   >
                     {link.label}
                   </button>
