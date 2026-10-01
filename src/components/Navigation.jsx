@@ -13,13 +13,14 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: "/home", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/experiences", label: "Experiences" },
-    { href: "/education", label: "Education" },
     { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
-    { href: "/resume.pdf/Adarsh_Resume.pdf", label: "Get Resume", isResume: true },
+    { href: "/education", label: "Blogs" },
+    { href: "/about", label: "Notes" },
+    { href: "/experiences", label: "Videos" },
+    { href: "/contact", label: "Papershelf" },
+    { href: "/home", label: "Bookshelf" },
+    { href: "/projects", label: "Courses" },
+    { href: "/contact", label: "Talks" },
   ];
 
   const handleResumeClick = (e) => {
@@ -36,27 +37,17 @@ const Navigation = () => {
 
   return (
     <>
-      {/* FIXED NAVBAR */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 border-b border-[#deddd7] transition-all duration-200 ${
-          isScrolled
-            ? "bg-[#faf9f6]/85 backdrop-blur-md shadow-xs"
-            : "bg-[#faf9f6]"
-        }`}
+        className={`site-nav ${isScrolled ? "site-nav--scrolled" : ""}`}
         role="navigation"
         aria-label="main navigation"
       >
-        <div className="w-full max-w-[1400px] px-3 sm:px-6 md:px-12 lg:px-16 xl:px-20 h-[52px] sm:h-[56px] flex items-center justify-between">
-          {/* BRAND */}
-          <Link
-            to="/home"
-            className="font-serif italic font-bold text-xl sm:text-2xl text-[#111111] tracking-tight hover:text-[#fa0000] transition-colors select-none"
-          >
+        <div className="page-shell nav-shell">
+          <Link to="/home" className="brand-mark" aria-label="Adarsh Kumar home">
             Adarsh Kumar
           </Link>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="desktop-nav" aria-label="desktop navigation">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href;
               if (link.isResume) {
@@ -64,7 +55,8 @@ const Navigation = () => {
                   <button
                     key={link.href}
                     onClick={handleResumeClick}
-                    className="ml-2 px-3 py-1 rounded-md border border-[#aeaeae] bg-white text-[#333333] text-[13px] font-bold cursor-pointer font-sans transition-all hover:border-[#fa0000] hover:text-[#fa0000] active:scale-95"
+                    className="resume-button"
+                    type="button"
                   >
                     {link.label}
                   </button>
@@ -74,42 +66,40 @@ const Navigation = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`px-3 py-1.5 text-sm transition-all duration-150 font-sans font-bold border-b-[4px] ${
-                    isActive
-                      ? "border-[#fa0000] text-[#111111]"
-                      : "border-transparent text-[#444444] hover:border-[#fa0000] hover:text-[#111111]"
-                  }`}
+                  className={`nav-link ${isActive ? "nav-link--active" : ""}`}
                 >
                   {link.label}
                 </Link>
               );
             })}
+            <button className="theme-toggle" type="button" aria-label="Toggle theme">
+              ☼
+            </button>
           </div>
 
-          {/* MOBILE HAMBURGER */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex md:hidden p-1.5 rounded-md text-[#333333] hover:text-[#fa0000] transition-colors cursor-pointer"
+            className="mobile-menu-button"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
+            type="button"
           >
             {isMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             )}
           </button>
         </div>
       </nav>
 
-      {/* MOBILE DRAWER */}
       {isMenuOpen && (
-        <div className="fixed top-[52px] sm:top-[56px] left-0 right-0 z-40 bg-[#faf9f6] border-b border-[#deddd7] px-3 py-3 shadow-lg md:hidden animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="flex flex-col gap-1 max-w-md mx-auto">
+        <div className="mobile-menu" aria-label="mobile navigation">
+          <div className="mobile-menu-inner">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href;
               if (link.isResume) {
@@ -120,7 +110,8 @@ const Navigation = () => {
                       handleResumeClick(e);
                       setIsMenuOpen(false);
                     }}
-                    className="w-full mt-2 py-2.5 px-4 rounded-md border border-[#aeaeae] bg-white text-[#333333] text-sm font-bold cursor-pointer font-sans transition-all hover:border-[#fa0000] hover:text-[#fa0000] text-center shadow-xs"
+                    className="mobile-resume-button"
+                    type="button"
                   >
                     {link.label}
                   </button>
@@ -131,11 +122,7 @@ const Navigation = () => {
                   key={link.href}
                   to={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center px-3.5 py-2.5 rounded-md text-sm font-sans transition-all ${
-                    isActive
-                      ? "bg-[#fa0000]/10 border-l-4 border-[#fa0000] font-bold text-[#fa0000]"
-                      : "border-l-4 border-transparent font-medium text-[#333333] hover:bg-black/5 hover:text-[#111111]"
-                  }`}
+                  className={`mobile-nav-link ${isActive ? "mobile-nav-link--active" : ""}`}
                 >
                   {link.label}
                 </Link>
